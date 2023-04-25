@@ -1,5 +1,6 @@
 <?php
 
+use App\Modules\Approval\Api\Controllers\InviceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/invices',[InviceController::class,'index']);
+Route::post('/invice/approve',[InviceController::class,'approve_invoice']);
+Route::post('/invice/reject',[InviceController::class,'reject_invoice']);
+
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
